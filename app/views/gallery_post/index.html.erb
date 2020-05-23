@@ -1,0 +1,16 @@
+
+
+
+    <div class="container">
+        <div class="col-12">
+
+            <% @GalleryPosts.each do |gp|%>
+                    <img src="<%= url_for(gp.image) %>" class="<%= getCssString()%> " >
+            <% end %>
+
+         </div>
+     </div>
+
+<%# render each image order by sequence float by property  %>
+
+<%= link_to "add gallery post", new_gallery_post_path() %>

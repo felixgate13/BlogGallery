@@ -1,0 +1,10 @@
+  <div class="container"> 
+
+<% @blogs.each do |blog|%>
+    <h3> <%= link_to blog.title , blog_path(blog.id) %> </h3>
+    <% if blog.main_photo.attached? %>
+    <img src=<%=url_for(blog.main_photo) %>
+    <% end %>
+<% end %>
+</div>
+<%= link_to "Create new Blog", new_blog_path() %>
