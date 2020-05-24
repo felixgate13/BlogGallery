@@ -17,7 +17,6 @@ def create
   if @blog.save
     render :index
   else
-    
     render :new
   end
 end
@@ -44,5 +43,4 @@ end
     @blog.destroy
     redirect_to :action => :index
   end
-
 end

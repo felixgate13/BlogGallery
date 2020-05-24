@@ -8,14 +8,9 @@
 
 <%= f.file_field :main_photo %>
 
-<%= select_tag 'category_id', options_for_select(Category.all.collect{ |c| [c.category] }) %>
-<%
-=begin%>
- <%=  f.collection_select( :blog, :category_id, Category.all, :id, Category.Category ) %> 
-<%
-=end%>
-<%= @blog.errors.full_messages %>
-
+<%= select_tag 'category', options_for_select(Category.all, "id", "category") %>
 <%= f.submit %>
+
+<%= @blog.errors.full_messages %>
 
 <%end %>
