@@ -1,4 +1,4 @@
-class GalleryPostController < ApplicationController
+class GalleryPostsController < ApplicationController
   def index
     @GalleryPosts = GalleryPost.order(:sequence)
   end
@@ -9,10 +9,11 @@ class GalleryPostController < ApplicationController
   
   def create
     @GalleryPost = GalleryPost.create(gallery_post_params)
+    @GalleryPost = get_GP_with_seq(@GalleryPost)
     
-    if iterate_sequence(@GalleryPost, false)
+    if iterate_sequence(@GalleryPost)
       @GalleryPost.save
-      redirect_to @GalleryPost
+      render :index
     end 
   end
 
@@ -22,17 +23,18 @@ class GalleryPostController < ApplicationController
 
   def update
     @GalleryPost = GalleryPost.find(params[:id])
+    @GalleryPost = get_GP_with_seq(@GalleryPost)
 
-    iterate_sequence(@GalleryPost, true)
+    iterate_sequence(@GalleryPost)
     if @GalleryPost.update(gallery_post_params)
-      redirect_to @GalleryPost
+      render :index
     else
       render :edit
     end
   end
 
   def gallery_post_params
-    params.require(:GalleryPost).permit(:sequence, :image, :from_left, :name, :height)
+    params.require(:gallery_post).permit(:sequence, :image, :from_left, :name, :height)
   end
 
   def destroy
@@ -43,25 +45,30 @@ class GalleryPostController < ApplicationController
 
   end
 
-# to be called before update/create to iterate all other sequences and update them
-  def iterate_sequence(curGalleryPost, isupdate)
 
-    #if sequence is blank add on the end this is a create
-    if !curGalleryPost.attributes[sequence]
-      curGalleryPost.attributes[sequence] = GalleryPost.count + 1
+  def get_GP_with_seq(curGalleryPost)
+    if !curGalleryPost.sequence? 
+      curGalleryPost.sequence = GalleryPost.count + 1
     end
-    if isupdate
+
+    curGalleryPost
+  end
+
+# to be called before update/create to iterate all other sequences and update them
+  def iterate_sequence(curGalleryPost)
       itemsToReorder = GalleryPost.where("sequence >= ? ", curGalleryPost.sequence).order(:sequence)
       itemsToReorder.each do |i|
         i.sequence = i.sequence++ 
         i.update() 
     end
-    end
   end
 
   def getCssString(gp)
+    imageUrl = url_for(gp.image)
+
     out = ""
-    out << "left: " << gp.from_left << ";" << " height: " << gp.height << ";"
+    out << "left: " << gp.from_left << "%; height: " << gp.height << "px; position: relative; display: block;"
+    out <<  "background-image:url(" << imageUrl  << "); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"
   end
   helper_method :getCssString
 end

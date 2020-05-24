@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :gallery_post
+  get 'pages/home'
+  resources :gallery_posts
   resources :categories
   resources :blogs
 end

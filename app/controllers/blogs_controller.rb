@@ -15,9 +15,9 @@ def create
   @blog = Blog.create(blog_params)
 
   if @blog.save
-    redirect_to @blog
+    render :index
   else
-    @blog.errors.full_messages
+    
     render :new
   end
 end
@@ -33,7 +33,7 @@ end
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to @blog
+      render :index
     else
       render :edit
     end

@@ -1,3 +1,3 @@
 class GalleryPost < ApplicationRecord
-    has_one :image
+    has_one_attached :image
 end
