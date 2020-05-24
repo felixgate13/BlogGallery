@@ -13,24 +13,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </head>
   <body>
+<!-- Nav -->
        <nav class="navbar navbar-default my-5">
+        
         <ul class="nav navbar-nav ">
-          <li><h4 class="ml-4"><%= link_to "Culinary Design" %></h4></li>
+          <li><h4 class="ml-4"><%= link_to "Culinary Design" , controller: "pages", action: "home" %></h4></li>
         </ul>
+        
         <ul class="nav  navbar-right mr-4">
-          <li><h5 class="ml-4"><%= link_to "My Story" %></h5></li>
-            <% @categoriesFull.each do |category|%>
-          <li><h5 class="ml-4"><%= link_to(category.category, controller: "blog$")
+          <li><h5 class="ml-4">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
+
+          <% @categories.each do |category|%>
+            <li><h5 class="ml-4"><%= link_to(category.category, controller: "blog", action: "index")%>
           <% end %>
+
+          <li><h5 class="ml-4"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%>
         </ul>
+
     </nav>
+<!-- /Nav -->
+<!-- Main -->
     <div class="container-fluid">
       <%= yield %>
     </div>
+<!-- /Main -->
+<!-- FOOTER -->
     <footer class="footer p-5 bg-dark">
       <div class="row mb-3">
         <div class="col-12">
-          <h5 class="text-light">Will Gibbs <a class="float-right"> <i class="f$
+          <h5 class="text-light">Will Gibbs <a class="float-right"> 
         </div>
       </div>
       <div class="row">
@@ -44,6 +55,8 @@
         </div>
       </div>
     </footer>
+<!-- /FOOTER -->
+
   </body>
 </html>
 

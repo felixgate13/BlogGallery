@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def login 
   end
+
+  def my_story
+
+  end
 end
