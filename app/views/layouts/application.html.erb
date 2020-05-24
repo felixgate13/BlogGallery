@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet"> 
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -20,14 +22,14 @@
           <li><h4 class="ml-4"><%= link_to "Culinary Design" , controller: "pages", action: "home" %></h4></li>
         </ul>
         
-        <ul class="nav  navbar-right mr-4">
-          <li><h5 class="ml-4">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
+        <ul class="nav navbar-right list-inline ml-auto mr-4">
+          <li class="list-inline-item"><h5 class="ml-4">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
 
           <% @categories.each do |category|%>
-            <li><h5 class="ml-4"><%= link_to(category.category, controller: "blog", action: "index")%>
+            <li class="list-inline-item"><h5 class="ml-4"><%= link_to(category.category, controller: "blogs", action: "index")%>
           <% end %>
 
-          <li><h5 class="ml-4"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%>
+          <li class="list-inline-item"> <h5 class="ml-4"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%>
         </ul>
 
     </nav>
@@ -41,7 +43,7 @@
     <footer class="footer p-5 bg-dark">
       <div class="row mb-3">
         <div class="col-12">
-          <h5 class="text-light">Will Gibbs <a class="float-right"> 
+          <h5 class="text-light">Will Gibbs 
         </div>
       </div>
       <div class="row">

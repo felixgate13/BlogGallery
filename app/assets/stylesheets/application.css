@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+ @font-face {
+    font-family: 'Muli', sans-serif;
+    src: url('../fonts/main.ttf');
+ }
+
+
+.body {
+    font-family: 'Muli', sans-serif;
+ }
+.a {
+    color: #000; }
+  
+.a:visited {
+    color: #666; }
+  
+.a:hover {
+    color: #fff;
+    background-color: #336633; }

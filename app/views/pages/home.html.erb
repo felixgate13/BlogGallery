@@ -1,25 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 <!-- IN CONTAINER FLUID -->
 
-<div class="row home_image mb-5">
+<%
+=begin%>
+ <div class="row home_image mb-5  h-50">
+    <%= image_tag "home_wall.jpg", :class => " w-100 mx-auto cover" %>
+</div> 
+<%
+=end%>
 
+<div class="row m-5 bg-dark"> 
+    <div class="col-12 my-5">
+        <h1 class="text-center text-light"> “People who love to eat are always the best people.” - Julia Child </h2>
+    </div>
 </div>
 <div class="row mb-5">
-    <h3>
-        My Personal Exploration into the Layers of <strong> Philosophy & Design </strong> Found Within the Culinary World
-    </h3>
+    <div class="col-md-8 col-sm-12 mx-auto">
+        <h2 class="text-center">
+            My Personal Exploration into the Layers of <strong> Philosophy & Design </strong> Found Within the Culinary World
+        </h2>
+    </div>
 </div>
-<div class="row mb-10">
-    <div class="col-md-3 col-sm-12 m-3"></div>
-    <div class="col-md-3 col-sm-12 m-3"></div>
-    <div class="col-md-3 col-sm-12 m-3"></div>
+<div class="container"> 
+    <div class="row mb-10">
+            <div class="col-md-3 col-sm-10 mx-auto">
+                <%= image_tag "chilli.jpg", :class => "image-fluid w-100" %>
+            </div>
+            <div class="col-md-3 col-sm-10 mx-auto">
+                <%= image_tag "picle.jpg", :class => "image-fluid w-100" %>
+            </div>
+            <div class="col-md-3 col-sm-10 mx-auto">
+                <%= image_tag "lemon.jpg", :class => "image-fluid w-100" %>
+            </div>
+    </div>
 </div>
-<div class="row mb-5">
-    <h4 class="mx-auto mb-2">
-       <strong> Something smells a bit fishy? </strong>
-    </h4>
-    <h6 class="mx-auto">
-        Not to worry, this is not a pretentious analysis of culinary skills that will lead to a prescriptive definition of how to flaunce around your kitchen with a sense of pompus empowerment. I write this blog simply to question mundane elements of the kitchen that may otherwise be overlooked.
-    </h6>
+<div class="w-100 my-5 text-center">
+    <div class="col-md-6 col-sm-12 mx-auto"> 
+        <h3 class="mx-auto mb-3">
+        <strong> Something smells a bit fishy? </strong>
+        </h3>
+        <h5 class="mx-auto">
+            Not to worry, this is not a pretentious analysis of culinary skills that will lead to a prescriptive definition of how to flaunce around your kitchen with a sense of pompus empowerment. I write this blog simply to question mundane elements of the kitchen that may otherwise be overlooked.
+        </h6>
+    </div>
 </div>
