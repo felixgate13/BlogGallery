@@ -15,14 +15,15 @@
  */
 
 
- @font-face {
-    font-family: 'Muli', sans-serif;
-    src: url('../fonts/main.ttf');
- }
-
+ .home_image {
+    /* background-image: url(/assets/veg_back.jpg); */
+    background-image: url(/assets/veg_back.jpg);
+    background-size: cover;
+    height: 100vh;
+}
 
 .body {
-    font-family: 'Muli', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  }
 .a {
     color: #000; }
