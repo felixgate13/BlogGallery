@@ -1,4 +1,7 @@
 class GalleryPostsController < ApplicationController
+  
+  skip_before_action :authorized, only: [:index]
+
   def index
     @GalleryPosts = GalleryPost.order(:sequence)
   end

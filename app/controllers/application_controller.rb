@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
-    before_action :get_categories
+    before_action :get_categories, :authorized
 
     helper_method :admin_user
     helper_method :logged_in_admin?
+    
     def get_categories
         @categories = Category.all()
     end
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::Base
         !admin_user.nil?
     end
 
-    def page_requires_login
-
+    def authorized
+        redirect_to '/welcome' unless logged_in_admin?
     end
 end
