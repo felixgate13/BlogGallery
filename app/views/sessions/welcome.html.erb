@@ -1,0 +1,12 @@
+<h1>Welcome</h1>
+
+
+<%= button_to "add new admin", '/users/new', method: :get%>
+
+<% if logged_in_admin? %>    
+<h1>You are Logged In, <%= admin_user.username %></h1>
+<%else%> 
+<%= button_to "Login", '/login', method: :get%>
+<%end%>
+
+

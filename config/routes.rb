@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
-  root 'pages#home', as: 'home'
+  resources :users, only: [:new, :create]
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'welcome', to: 'sessions#welcome'
+
   
-  get 'pages/login', as: 'login'
-  get 'pages/admin', as: 'admin'
+  root 'pages#home', as: 'home'
   get 'pages/my_story', as: 'my_story'
 
 
