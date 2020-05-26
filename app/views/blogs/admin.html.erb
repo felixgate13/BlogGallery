@@ -1,9 +1,30 @@
-<% @blogs.each do |blog|%>
-    <div> 
-        <h3> <%= link_to blog.title , blog_path(blog.id) %> </h3>
-        <% if blog.main_photo.attached? %>
-            <img src=<%=url_for(blog.main_photo) %>>
-        <% end %>
+
+
+
+
+    <h2 class="text-center my-5" >  ADMIN PAGE: BLOGS </h2>
+    <h3 class="text-center my-5 text-light border border-primary">  <%= link_to "BACK TO ADMIN PAGE", controller: "pages", action: "admin" %> </h3>
+
+<div class="row">
+    <div class="col-12 card bg-light text-light text-center ">
+    <h3>  <%= link_to "Create new Blog", new_blog_path() %> </h3>
     </div>
-<% end %>
-<%= link_to "Create new Blog", new_blog_path() %>
+ </div>
+<div class="row "> 
+  <% @blogs.each do |blog|%>
+      <div class="col-lg-4 col-md-6 col-sm-12 my-4"> 
+    <%= link_to  edit_blog_path(blog.id) do %> 
+        <div class="card text-white thumb-post">
+          <% if blog.main_photo.attached? %>
+            <img class="card-img  mb-0" src="<%=url_for(blog.main_photo)%>" alt="blog image">
+          <%end%>
+          <div class="card-body bg-dark m-0 ">
+            <h5 class="card-text text-center text-light"><%= blog.title %></h5>
+            <h6 class="card-text text-center text-light"><%= blog.created_at.to_date %></h5>
+          </div>
+        </div>
+    <% end %>
+      </div>
+
+  <%end%>
+</div>

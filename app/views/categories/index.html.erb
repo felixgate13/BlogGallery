@@ -1,3 +1,6 @@
+    <h3 class="text-center my-5 text-light border border-primary">  <%= link_to "BACK TO ADMIN PAGE", controller: "pages", action: "admin" %> </h3>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
@@ -15,8 +18,8 @@
       <tr>
         <td><%= category.category %></td>
         <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-warning"><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td class="text-danger"><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

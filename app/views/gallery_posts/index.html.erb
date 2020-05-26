@@ -1,18 +1,10 @@
 
 
-
-    <div class="container">
-   
-
+<% @GalleryPosts.each do |gp|%>
+    <div class="row my-3"> 
         <div class="col-12">
+            <span style="<%= getCssString(gp)%> "> </span>
+        </div>
+    </div>
+<% end %>
 
-            <% @GalleryPosts.each do |gp|%>
-                    <span style="<%= getCssString(gp)%> "> </span>
-                    <%= link_to "edit post", edit_gallery_post_path(gp.id) %>
-
-            <% end %>
-
-         </div>
-     </div>
-
-<%# render each image order by sequence float by property  %>

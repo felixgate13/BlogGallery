@@ -73,3 +73,14 @@ a , a:hover{
 color: pink;
 
   }
+
+  .thumb-post img {
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 100%;
+    height: 300px;
+
+    margin-bottom: 1rem;
+  }
+
+  

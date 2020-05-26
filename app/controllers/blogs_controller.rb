@@ -2,7 +2,11 @@ class BlogsController < ApplicationController
     skip_before_action :authorized
 
   def index
-    @blogs = Blog.where(category_id: params[:category_id])
+    if params[:category_id].present?
+      @blogs = Blog.where(category_id: params[:category_id])
+    else
+      render 'pages/home'
+    end
   end
 
   def show
@@ -17,7 +21,7 @@ def create
   @blog = Blog.create(blog_params)
 
   if @blog.save
-    redirect_to action: 'index', query: params[:category]
+    redirect_to action: 'admin'
   else
     render :new
   end
@@ -34,7 +38,7 @@ end
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to action: 'index', query: params[:category]
+      redirect_to action: 'admin'
     else
       render :edit
     end

@@ -12,10 +12,13 @@
 <br>
 
 <%= f.label :category%>
-<%= select_tag('category', options_from_collection_for_select(Category.all(), "id", "category") )%>
+<%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
+
 <br>
 
 <%= f.submit %>
+
+<br>
 
 <%= @blog.errors.full_messages %>
 
