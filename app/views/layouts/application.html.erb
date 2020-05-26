@@ -26,7 +26,7 @@
           <li class="list-inline-item"><h5 class="ml-4 my-0 hover-line">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
 
           <% @categories.each do |category|%>
-            <li class="list-inline-item"><h5 class="ml-4 my-0 hover-line"><%= link_to(category.category, controller: "blogs", action: "index", query: category.id)%> </li>
+            <li class="list-inline-item"><h5 class="ml-4 my-0 hover-line"><%= link_to(category.category, controller: "blogs", action: "index", category_id: category.id)%> </li>
           <% end %>
 
           <li class="list-inline-item"> <h5 class="ml-4 my-0 hover-line"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%> </li>

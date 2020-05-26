@@ -2,13 +2,19 @@
 
 <%= f.label :title%>
 <%= f.text_field :title%>
-
+<br>
 <%= f.label :content%>
 <%= f.text_area :content%>
+<br>
 
+<%= f.label :main_photo%>
 <%= f.file_field :main_photo %>
+<br>
 
-<%= select_tag 'category', options_for_select(Category.all, "id", "category") %>
+<%= f.label :category%>
+<%= select_tag('category', options_from_collection_for_select(Category.all(), "id", "category") )%>
+<br>
+
 <%= f.submit %>
 
 <%= @blog.errors.full_messages %>

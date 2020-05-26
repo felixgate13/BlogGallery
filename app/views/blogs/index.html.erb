@@ -3,7 +3,9 @@
     <%= link_to  blog_path(blog.id) do %> 
       <div class="col-3"> 
         <div class="card bg-dark text-white">
-          <img class="card-img" src="<%=url_for(blog.main_photo)%>" alt="blog image">
+          <% if blog.main_photo.attached? %>
+            <img class="card-img" src="<%=url_for(blog.main_photo)%>" alt="blog image">
+          <%end%>
           <div class="card-img-overlay">
             <h5 class="card-title text center"><%= blog.title %></h5>
             <h6 class="card-title text center"><%= blog.created_at.to_date %></h5>
