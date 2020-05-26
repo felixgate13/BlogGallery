@@ -16,20 +16,20 @@
   </head>
   <body>
 <!-- Nav -->
-       <nav class="navbar navbar-default my-3">
+       <nav class="mainNav navbar navbar-default my-3">
         
-        <ul class="nav navbar-nav ">
-          <li><h4 class="ml-4"><%= link_to "Culinary Design" , controller: "pages", action: "home" %></h4></li>
+        <ul class="nav navbar-nav list-inline ">
+          <li><h4 class="ml-4 my-0 hover-line"><%= link_to "WBG Culinary Design" , controller: "pages", action: "home" %></h4></li>
         </ul>
         
         <ul class="nav navbar-right list-inline ml-auto mr-4">
-          <li class="list-inline-item"><h5 class="ml-4">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
+          <li class="list-inline-item"><h5 class="ml-4 my-0 hover-line">  <%= link_to "My Story", controller: "pages", action: "my_story" %> </h5></li>
 
           <% @categories.each do |category|%>
-            <li class="list-inline-item"><h5 class="ml-4"><%= link_to(category.category, controller: "blogs", action: "index")%>
+            <li class="list-inline-item"><h5 class="ml-4 my-0 hover-line"><%= link_to(category.category, controller: "blogs", action: "index", query: category.id)%> </li>
           <% end %>
 
-          <li class="list-inline-item"> <h5 class="ml-4"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%>
+          <li class="list-inline-item"> <h5 class="ml-4 my-0 hover-line"><%= link_to("Gallery", controller: "gallery_posts", action: "index")%> </li>
         </ul>
 
     </nav>
@@ -40,20 +40,20 @@
     </div>
 <!-- /Main -->
 <!-- FOOTER -->
-    <footer class="footer p-5 bg-dark">
-      <div class="row mb-3">
+    <footer class="footer p-4 bg-dark">
+    <div class="row mt-3">
         <div class="col-12">
-          <h5 class="text-light">Will Gibbs 
+          <h6 class="text-light text-center">Will Gibbs 
+        </div>
+      </div>
+     <div class="row mb-3">
+        <div class="col-12">
+          <h6 class="text-light text-center">Gold Smiths Design Student</h5>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <h5 class="text-light">Gold Smiths Design Student</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <h5 class="text-light">wgibb001@gold.ac.uk</h5>
+          <h6 class="text-light text-center">wgibb001@gold.ac.uk</h5>
         </div>
       </div>
     </footer>

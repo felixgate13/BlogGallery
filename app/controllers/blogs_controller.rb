@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.all()
+    @blogs = Blog.where(category_id: params[:query])
   end
 
   def show
@@ -45,5 +45,9 @@ end
     @blog = Blog.find(params[:id])
     @blog.destroy
     redirect_to :action => :index
+  end
+
+  def admin
+    @blogs = Blog.all()
   end
 end

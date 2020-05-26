@@ -1,8 +1,10 @@
 <h1>Welcome bitch</h1>
-<%= link_to "Create New Admin", controller: "users", action: "new" %>
 <br>
 <% if logged_in_admin? %>    
 <h1>You are Logged In, <%= admin_user.username %></h1>
+
+<%= link_to "Admin Page", controller: "pages", action: "admin" %>
+
 <%else%> 
 <%= link_to "Login", controller: "sessions", action: "create" %>
 <%end%>

@@ -1,0 +1,12 @@
+ <div class="row mb-5"> 
+ <%= link_to "add gallery post", new_gallery_post_path(), class: "btn btn-dark mx-auto text-center" %>
+ </div>
+    <div class="row">
+      <% @GalleryPosts.each do |gp|%>
+        <div class="col-4 my-5 text-center">
+            <h4> <%= gp.name %>, <%= gp.sequence %> </h3>
+            <span style="<%= getCssString(gp)%> position: static;"> </span>
+            <%= link_to "edit post", edit_gallery_post_path(gp.id), class: "btn btn-dark mt-2 mx-auto" %>
+        </div>
+    <% end %>
+    </div>

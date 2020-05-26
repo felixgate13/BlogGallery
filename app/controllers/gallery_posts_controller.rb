@@ -74,4 +74,10 @@ class GalleryPostsController < ApplicationController
     out <<  "background-image:url(" << imageUrl  << "); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"
   end
   helper_method :getCssString
+
+
+  def admin
+    @GalleryPosts = GalleryPost.all()
+  end
+
 end

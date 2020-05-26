@@ -2,18 +2,23 @@
 
 <%= f.label :name%>
 <%= f.text_field :name%>
-
+    
+<br>
 <%= f.label :image%>
 <%= f.file_field :image %>
+<br>
 
 <%= f.label :sequence%>
 <%= f.select :sequence, GalleryPost.all.map {|c| c.sequence}, include_blank: "add on the end (max seq)" %>
+<br>
 
 <%= f.label :from_left%>
 <%= f.text_field :from_left   %>
+<br>
 
 <%= f.label :height, "Height px" %>
 <%= f.text_field :height   %>
+<br>
 
 <%= f.submit %>
 <%end %>
