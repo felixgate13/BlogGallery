@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
 
-  get  'sessions/new', as: 'login'
-  get 'welcome', to: 'sessions#welcome'
-  post 'sessions#new', to: 'sessions#create'
+  get  'login', to: 'session#new'
+  get  'welcome', to: 'sessions#welcome'
+  post 'login', to: 'sessions#create'
 
   root 'pages#home', as: 'home'
   get 'pages/my_story', as: 'my_story'
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get 'pages/admin', as: 'admin'
   get 'blogs/admin', as: 'blogs/admin'
   get 'gallery_posts/admin', as: 'gallery_posts/admin'
-
-
+  
+  resources :sessions
   resources :users, only: [:new, :create]
   resources :gallery_posts
   resources :categories

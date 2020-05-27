@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  if User.count === 0 
+    skip_before_action :authorized
+  end
+
   def new
     @user = User.new
   end
