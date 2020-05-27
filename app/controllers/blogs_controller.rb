@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-    skip_before_action :authorized
+  skip_before_action :authorized, only: [:index, :show]
+    
 
   def index
     if params[:category_id].present?

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  get 'login', to: 'sessions#new'
+  get  'sessions/new', as: 'login'
   get 'welcome', to: 'sessions#welcome'
   post 'sessions#new', to: 'sessions#create'
 
