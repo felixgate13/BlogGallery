@@ -15,8 +15,11 @@ class GalleryPostsController < ApplicationController
     @GalleryPost = get_GP_with_seq(@GalleryPost)
     
     if iterate_sequence(@GalleryPost)
-      @GalleryPost.save
-      render :index
+      if @GalleryPost.save
+        render :index
+      else
+        render :new
+      end
     end 
   end
 
@@ -37,7 +40,7 @@ class GalleryPostsController < ApplicationController
   end
 
   def gallery_post_params
-    params.require(:gallery_post).permit(:sequence, :image, :from_left, :name, :height)
+    params.require(:gallery_post).permit(:sequence, :image, :from_left, :name, :height, :from_top)
   end
 
   def destroy
@@ -72,9 +75,10 @@ class GalleryPostsController < ApplicationController
     out = ""
     out << "left: " << gp.from_left << "%; height: " << gp.height << "px; position: relative; display: block;"
     out <<  "background-image:url(" << imageUrl  << "); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"
+    out << "top: " << gp.from_top << "%;"
+
   end
   helper_method :getCssString
-
 
   def admin
     @GalleryPosts = GalleryPost.all()

@@ -8,14 +8,23 @@
 <%= f.file_field :image %>
 <br>
 
+<p>this is the order of the pictures. 1 being first.</p>
 <%= f.label :sequence%>
 <%= f.select :sequence, GalleryPost.all.map {|c| c.sequence}, include_blank: "add on the end (max seq)" %>
 <br>
 
+<p>-50% is all the way to the left, 50% all the way to the right. ONLY TYPE NUMBER. e.g 50 for 50%. </p>
 <%= f.label :from_left%>
 <%= f.text_field :from_left   %>
+
+<br>
+<p>-50% is all the way to the top, 50% all the way to the bottom. ONLY TYPE NUMBER. e.g 50 for 50%. </p>
+<%= f.label :from_top%>
+<%= f.text_field :from_top %>
+
 <br>
 
+<p> max height </p>
 <%= f.label :height, "Height px" %>
 <%= f.text_field :height   %>
 <br>

@@ -1,14 +1,14 @@
-<h1><%= @blog.title %></h1>
-<h2><%= @blog.category %></h2>
 
-<h3><%= @blog.content %></h3>
 
-<div style= "width: 200px, height: 100px"> 
-    <% if @blog.main_photo.attached? %>
-    <image src="<%=(url_for(@blog.main_photo))%>">
-    <% end %>
+<div class="my-5 "> 
+    <div class="row pt-5">
+        <div class="col-8 mx-auto text-center">
+            <h1 ><%= @blog.title %></h1>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="col-lg-8 col-md-10 col-sm-12 mx-auto text-left">
+            <p><%= @blog.content %><p>
+        </div>
+    </div>
 </div>
-
-<%=  link_to 'edit', edit_blog_path(@blog.id) %>
-<%=  link_to 'delete', blog_path(@blog.id), method: :delete %>
-
