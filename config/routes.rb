@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'pages#home', as: 'home'
   get 'pages/my_story', as: 'my_story'
+  get 'pages/defrosting', as: 'defrosting'
+
 
   get 'pages/admin', as: 'admin'
   get 'blogs/admin', as: 'blogs/admin'
