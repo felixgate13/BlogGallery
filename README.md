@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version : ruby 2.6.3p62
 
-Things you may want to cover:
+database : POSTGRESQL
 
-* Ruby version
+To create database:
 
-* System dependencies
+rake db:create && rake db:schema:load
 
-* Configuration
+and to start proj on local: 
 
-* Database creation
+Rails s
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+just a little app for my friend that im working on.
+its for his second year project i think for uni.
